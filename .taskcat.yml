@@ -1,0 +1,33 @@
+project:
+  name: cfn-ps-taskcat-ci
+  owner: quickstart-eng@amazon.com
+  shorten_stack_name: true
+  package_lambda: true
+  lambda_source_path: functions/source
+  lambda_zip_path: functions/packages
+  template: templates/ec2-sg.yaml.yaml
+  regions:
+    - ca-central-1
+    - eu-central-1
+    - eu-north-1
+    - eu-south-1
+    - eu-west-1
+    - eu-west-2
+    - eu-west-3
+    - sa-east-1
+    - us-east-1
+    - us-east-2
+    - us-west-1
+    - us-west-2
+
+  parameters:
+    GitHubUsername: --override--
+    GitHubOAuthToken: --override--
+    GitHubOwner: --override--
+    GitHubRepoName: --override--
+    QSS3BucketName: $[taskcat_autobucket]
+    QSS3BucketRegion: $[taskcat_current_region]
+tests:
+  taskcat-ci:
+    regions:
+      - us-east-1
