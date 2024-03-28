@@ -2,7 +2,7 @@ project:
   name: taskcat
   regions:
     - us-east-1
-    - sa-east-1
+    - us-east-2
 tests:
   sqs-test:
     template: ./sqs.yml
